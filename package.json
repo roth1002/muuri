@@ -30,8 +30,7 @@
     "test": "gulp"
   },
   "dependencies": {
-    "hammerjs": "^2.0.0",
-    "velocity-animate": "^1.2.0"
+    "hammerjs": "^2.0.0"
   },
   "devDependencies": {
     "dotenv": "^4.0.0",
@@ -57,7 +56,6 @@
     "qunitjs": "^2.4.0",
     "rimraf": "^2.6.1",
     "run-sequence": "^1.2.2",
-    "velocity-animate": "^1.5.0",
     "yargs": "^8.0.2"
   }
 }
