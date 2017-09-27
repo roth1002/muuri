@@ -2102,14 +2102,13 @@ TODO
     inst._animate.destroy();
     inst._animateChild.destroy();
 
+    // Handle visibility callback queue, fire all uncompleted callbacks with
+    // interrupted flag.
+    processQueue(inst._visibilityQueue, true, inst);
+
     // Remove all inline styles.
     element.removeAttribute('style');
     inst._child.removeAttribute('style');
-
-    // Handle visibility callback queue, fire all uncompleted callbacks with
-    // interrupted flag.
-    // TODO: Is this really the right place to call these?
-    processQueue(inst._visibilityQueue, true, inst);
 
     // Remove classes.
     removeClass(element, settings.itemPositioningClass);
@@ -2614,8 +2613,7 @@ TODO
     }
 
     // Stop current visibility animations.
-    // TODO: This causes potentially layout thrashing, because we are not
-    // feeding any styles to the stop handlers.
+    // TODO: Potentially causes forced synchronous layout.
     currentGrid._itemShowHandler.stop(item);
     currentGrid._itemHideHandler.stop(item);
 
